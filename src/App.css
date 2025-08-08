@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-purple-950: hsl(278, 68%, 11%);
+  --color-grey-200: hsl(270, 3%, 87%);
+  --color-grey-400: hsl(212, 12%, 71%);
+}
+
+#root {
+  font-family: "Space Grotesk", sans-serif;
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
