@@ -4,7 +4,7 @@ import './App.css'
 import cardFront from './assets/images/bg-card-front.png'
 import cardBack from './assets/images/bg-card-back.png'
 import mobileBG from './assets/images/bg-main-mobile.png'
-import desktopBG from './assets/images/bg-main-desktop.png'
+// import desktopBG from './assets/images/bg-main-desktop.png'
 import cardLogo from './assets/images/card-logo.svg'
 import iconComplete from './assets/images/icon-complete.svg'
 function App() {
