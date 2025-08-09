@@ -185,7 +185,7 @@ function App() {
 
             {/* form  */}
 
-            {!formSubmitted && <form className="details mt-20 flex flex-col gap-10 px-10 max-w-lg">
+            {!formSubmitted && <form className="details mt-20 flex flex-col gap-10 px-10 max-w-lg" onSubmit={handleSubmit}>
               <div className="cardholder flex flex-col gap-3">
                 <label htmlFor="cardholder-name" className='text-sm uppercase font-medium tracking-widest text-purple-950'>Cardholder name</label>
                 <input type="text" placeholder='e.g Jane Appleseed' maxLength={32} className={`rounded-md border w-full px-3 py-4 text-lg font-medium capitalize  placeholder:text-md placeholder:font-medium placeholder:text-grey-200 outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-300 ease-in-out ${errors.fullName ? 'border-red-500' : 'border-grey-200'}`} value={fullName} onChange={(e) => setFullName(e.target.value)} />
@@ -209,11 +209,23 @@ function App() {
                 <div className="cvc flex flex-col gap-3 w-1/2">
                   <label htmlFor="exp-date" className='text-sm uppercase font-medium tracking-widest text-purple-950'>cvc</label>
                   <input type="number" placeholder='e.g 123' maxLength={3} className={`rounded-md border w-full px-3 py-4 text-lg font-medium placeholder:text-md placeholder:font-medium placeholder:text-grey-200 outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 ease-in-out ${errors.cvc ? 'border-red-500' : 'border-grey-200'}`} value={cvc} onChange={handleCVCChange} />
+                  {errors.cvc && <p className='text-red-500 text-xs font-medium'>Can't be blank</p>}
                 </div>
               </div>
 
               <button type='submit' className='w-full py-4 font-medium text-white bg-purple-950 text-center rounded-lg text-lg cursor-pointer hover:bg-purple-950/90'>Confirm</button>
             </form>}
+
+            {
+              formSubmitted && <div className='flex flex-col items-center justify-center gap-10 py-14 mt-20 px-10 ' id='success'>
+                <img src={iconComplete} alt="check-icon" />
+                <div className='w-full flex flex-col gap-5 items-center justify-center'>
+                  <h1 className='py-2 uppercase tracking-widest font-medium text-3xl'>Thank you!</h1>
+                  <p className='text-grey-400 text-lg font-medium'>We've added your card details</p>
+                  <button className='w-full mt-10 py-4 font-medium text-white bg-purple-950 text-center rounded-lg text-lg cursor-pointer hover:bg-purple-950/90'>Continue</button>
+                </div>
+              </div>
+            }
           </div>
         </div>
       </div>
